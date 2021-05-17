@@ -5,7 +5,7 @@ from flask.wrappers import Request
 app =  Flask(__name__)
 
 #Below is the dummy data
-dummy_data={ '1':469 , '2':200, '3':461 , '4':123 , '200269':540}
+dummy_data={ '200489':469 , '190007':200, '180000':461 , '1':123 , '200269':540}
 
 #Defining the /coins endpoint
 @app.route('/coins', methods=['POST'])
