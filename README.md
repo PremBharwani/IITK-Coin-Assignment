@@ -1,3 +1,4 @@
+I have tried to put up all the commands , if you face any issues please let me know.
 
 #### Setting up Flask: (the pwd should be in the current folder)
 1) Install python 
@@ -10,6 +11,8 @@
 
  To ensure you've installed flask correctly run :
     `$ python -c "import flask;print(flask.__version__)"`
+
+(I have not tracked the venv file , becuase it is not supposed to be uploaded on git)
 
 #### Running the project :
  
@@ -35,21 +38,21 @@ I have set dummy_data as in the main.py file :
 
 I used curl to make a POST request :
 
-        a) The Roll Number DOES NOT exist in the dummy_data
+   a) The Roll Number DOES NOT exist in the dummy_data
 
-        `$ curl --data '{"rollno":"200369"}' --header 'Content-Type: application/json' http://localhost:8080/coins`
+        $ curl --data '{"rollno":"200369"}' --header 'Content-Type: application/json' http://localhost:8080/coins
 
-        Output:
+   Output:
 
          {
           "coins": "null"
          }
 
-        a) The Roll Number exists in the dummy_data
+   a) The Roll Number exists in the dummy_data
 
-        `$ curl --data '{"rollno":"200269"}' --header 'Content-Type: application/json' http://localhost:8080/coins`
+        $ curl --data '{"rollno":"200269"}' --header 'Content-Type: application/json' http://localhost:8080/coins
 
-        Output:
+   Output:
 
         {
          "coins": 540
