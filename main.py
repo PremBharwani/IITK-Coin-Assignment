@@ -1,26 +1,34 @@
-from flask import Flask,render_template,request
+from logging import log
+from flask import Flask,request,jsonify
 from flask.wrappers import Request
 
 app =  Flask(__name__)
 
-coins_students_initialise={ '1':469 , '2':200, '3':461 , '4':123 }
-coins_dict={}
-
-@app.route("/")
-def home():
-    return render_template('index.html')
+dummy_data={ '1':469 , '2':200, '3':461 , '4':123 , '200269':540}
 
 @app.route('/coins', methods=['POST'])
 def coins_method():
-    coins_dict={ '1':469 , '2':200, '3':461 , '4':123 }
-    rollno=str(request.form.get("rollno"))
-    dict_status=str(coins_dict)
-    if str(rollno) in coins_dict:
-        found_op=dict_status+"{} has {} coins".format(rollno,coins_dict[str(rollno)])
-        return found_op        
-    else:
-        op=dict_status+"Roll Number {} is not present in the database".format(rollno)
-        return op
+    input_json = request.get_json(force=True)
+    rollno = input_json["rollno"]
+    if rollno in dummy_data:
+        app.logger.info("Found {} coins balace ".format(rollno))
+        dictToReturnIfFound = {'coins':dummy_data[rollno]}
+        return jsonify(dictToReturnIfFound)
+    dictToReturn = {'coins':'null'}
+    return jsonify(dictToReturn)
+    # coins_dict={ '1':469 , '2':200, '3':461 , '4':123 }
+    # rollno=str(request.form.get("rollno"))
+    # app.logger.info("Roll Number : "+rollno)
+    # app.logger.info("req.form.items : "+str(request.form.items))
+    # prem_dic=request.form
+    # prem_json = request.get_json
+    # prem_data = request.get_data
+    # app.logger.info("Get json : "+str(prem_json))
+    # app.logger.info("Get Data : "+str(prem_data))
+    
+    # # app.logger.info("Request form "+str(request.form))
+    # return prem_dic
+    
 
 
     
