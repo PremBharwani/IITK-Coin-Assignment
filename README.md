@@ -1,4 +1,6 @@
-I have tried to put up all the commands , if you face any issues please let me know.
+I have used Flask framework to do this .
+
+I have tried to put up all the commands, And i have done all the development in ubuntu , if you face any issues please let me know.
 
 #### Setting up Flask: (the pwd should be in the current folder)
 1) Install python 
